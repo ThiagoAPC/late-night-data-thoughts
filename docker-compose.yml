@@ -1,0 +1,40 @@
+services:
+  blog:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: sh -c "npm install && npm start -- --host 0.0.0.0"
+
+  # Serviço para criar o projeto inicial
+  init:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "npx create-docusaurus@latest temp-blog classic --typescript && mv temp-blog/* temp-blog/.* . 2>/dev/null; rm -rf temp-blog"
+    profiles:
+      - setup
+
+  # Serviço para instalar dependências
+  install:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: npm install
+    profiles:
+      - setup
+
+  # Serviço para build
+  build:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: npm run build
+    profiles:
+      - build
