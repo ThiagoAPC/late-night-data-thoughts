@@ -1,19 +1,69 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+typescript:
+  label: TypeScript
+  permalink: /typescript
+  description: Artigos sobre TypeScript
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+javascript:
+  label: JavaScript
+  permalink: /javascript
+  description: Artigos sobre JavaScript
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+react:
+  label: React
+  permalink: /react
+  description: Artigos sobre React
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+frontend:
+  label: Frontend
+  permalink: /frontend
+  description: Artigos sobre desenvolvimento frontend
+
+css:
+  label: CSS
+  permalink: /css
+  description: Artigos sobre CSS e estilização
+
+tailwind:
+  label: Tailwind
+  permalink: /tailwind
+  description: Artigos sobre Tailwind CSS
+
+git:
+  label: Git
+  permalink: /git
+  description: Artigos sobre Git
+
+ferramentas:
+  label: Ferramentas
+  permalink: /ferramentas
+  description: Artigos sobre ferramentas de desenvolvimento
+
+devops:
+  label: DevOps
+  permalink: /devops
+  description: Artigos sobre DevOps
+
+performance:
+  label: Performance
+  permalink: /performance
+  description: Artigos sobre performance web
+
+web:
+  label: Web
+  permalink: /web
+  description: Artigos sobre desenvolvimento web
+
+programacao:
+  label: Programação
+  permalink: /programacao
+  description: Artigos sobre programação
+
+docker:
+  label: Docker
+  permalink: /docker
+  description: Artigos sobre Docker
+
+linting:
+  label: Linting
+  permalink: /linting
+  description: Artigos sobre linting e formatação de código

@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Tech Blog',
-  tagline: 'Programação, IA e Ferramentas',
+  title: 'Late Night Data Thoughts',
+  tagline: 'Reflexões noturnas sobre dados, código e tecnologia',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -18,48 +18,45 @@ const config: Config = {
   url: 'https://thiagoapc.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/blog-tech-eng/',
+  baseUrl: '/late-night-data-thoughts/',
 
   // GitHub pages deployment config.
   organizationName: 'ThiagoAPC',
-  projectName: 'blog-tech-eng',
+  projectName: 'late-night-data-thoughts',
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'pt-BR',
+    locales: ['pt-BR'],
   },
 
   presets: [
     [
       'classic',
       {
-        docs: {
-          sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
+        docs: false, // Desabilita docs - é um blog
         blog: {
           showReadingTime: true,
+          blogTitle: 'Posts',
+          blogDescription: 'Artigos sobre desenvolvimento web, JavaScript, React e muito mais.',
+          postsPerPage: 10,
+          blogSidebarTitle: 'Arquivo',
+          blogSidebarCount: 'ALL',
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
+            title: 'Late Night Data Thoughts',
+            description: 'Reflexões noturnas sobre dados, código e tecnologia.',
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          onInlineTags: 'ignore',
+          onInlineAuthors: 'ignore',
+          onUntruncatedBlogPosts: 'ignore',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -72,33 +69,36 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
+      defaultMode: 'dark',
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Tech Blog',
-      logo: {
-        alt: 'Tech Blog Logo',
-        src: 'img/logo.svg',
-      },
+      title: 'Late Night Data Thoughts',
+      hideOnScroll: false,
       items: [
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/blog', label: 'Posts', position: 'left'},
         {to: '/about', label: 'About', position: 'left'},
         {
-          href: 'https://github.com/ThiagoAPC/blog-tech-eng',
-          label: 'GitHub',
+          href: 'https://github.com/ThiagoAPC',
           position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub',
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {
-          title: 'Blog',
+          title: 'Navegação',
           items: [
             {
               label: 'Posts',
               to: '/blog',
+            },
+            {
+              label: 'About',
+              to: '/about',
             },
           ],
         },
@@ -109,10 +109,14 @@ const config: Config = {
               label: 'GitHub',
               href: 'https://github.com/ThiagoAPC',
             },
+            {
+              label: 'Contato',
+              href: 'mailto:contato@techblog.com',
+            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} ThiagoAPC. Built with Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} Late Night Data Thoughts. Todos os direitos reservados.`,
     },
     prism: {
       theme: prismThemes.github,

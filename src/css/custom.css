@@ -1,30 +1,791 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Tech Blog - Custom CSS
+ * Design minimalista baseado no Figma
  */
 
-/* You can override the default Infima variables here. */
+/* ===== VARIÁVEIS DE TEMA ===== */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Cores primárias - tema claro */
+  --ifm-color-primary: #030213;
+  --ifm-color-primary-dark: #020110;
+  --ifm-color-primary-darker: #02010d;
+  --ifm-color-primary-darkest: #010008;
+  --ifm-color-primary-light: #0a0532;
+  --ifm-color-primary-lighter: #0d0741;
+  --ifm-color-primary-lightest: #140b5f;
+  
+  /* Backgrounds e foregrounds */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-font-color-base: #030213;
+  --ifm-font-color-secondary: #717182;
+  
+  /* Bordas e acentos */
+  --ifm-border-color: rgba(0, 0, 0, 0.1);
+  --ifm-color-emphasis-200: #ececf0;
+  --ifm-color-emphasis-300: #e9ebef;
+  
+  /* Tipografia */
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.65;
   --ifm-code-font-size: 95%;
+  
+  /* Navbar */
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-shadow: none;
+  --ifm-navbar-height: 60px;
+  
+  /* Footer */
+  --ifm-footer-background-color: #ffffff;
+  --ifm-footer-color: #717182;
+  
+  /* Cards e conteúdo */
+  --ifm-card-background-color: #ffffff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  
+  /* Radius */
+  --ifm-border-radius: 0.625rem;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* ===== TEMA ESCURO ===== */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #f5f5f5;
+  --ifm-color-primary-dark: #dcdcdc;
+  --ifm-color-primary-darker: #cfcfcf;
+  --ifm-color-primary-darkest: #a8a8a8;
+  --ifm-color-primary-light: #ffffff;
+  --ifm-color-primary-lighter: #ffffff;
+  --ifm-color-primary-lightest: #ffffff;
+  
+  --ifm-background-color: #0f0f10;
+  --ifm-background-surface-color: #1a1a1c;
+  --ifm-font-color-base: #f5f5f5;
+  --ifm-font-color-secondary: #a0a0a8;
+  
+  --ifm-border-color: rgba(255, 255, 255, 0.1);
+  --ifm-color-emphasis-200: #2a2a2c;
+  --ifm-color-emphasis-300: #3a3a3c;
+  
+  --ifm-navbar-background-color: #0f0f10;
+  --ifm-footer-background-color: #0f0f10;
+  --ifm-footer-color: #a0a0a8;
+  
+  --ifm-card-background-color: #1a1a1c;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== LAYOUT GLOBAL ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-weight: 400;
+}
+
+/* ===== NAVBAR MINIMALISTA ===== */
+.navbar {
+  position: relative;
+  border-bottom: 1px solid var(--ifm-border-color);
+  padding: 0 2rem;
+  height: var(--ifm-navbar-height);
+  box-shadow: none !important;
+}
+
+.navbar__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.navbar__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.navbar__logo {
+  display: none;
+}
+
+.navbar__items {
+  gap: 2rem;
+}
+
+.navbar__link {
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.navbar__link:hover {
+  opacity: 1;
+}
+
+.navbar__link--active {
+  opacity: 1;
+  font-weight: 500;
+}
+
+/* GitHub icon no header */
+.navbar__item.navbar__link[href*="github"] {
+  display: flex;
+  align-items: center;
+}
+
+/* Toggle dark mode */
+.navbar__items--right .clean-btn {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.navbar__items--right .clean-btn:hover {
+  opacity: 1;
+}
+
+/* ===== HERO / HOME ===== */
+.hero {
+  padding: 4rem 0;
+  background: transparent;
+  text-align: center;
+}
+
+.hero--primary {
+  background: transparent;
+  --ifm-hero-background-color: transparent;
+  --ifm-hero-text-color: var(--ifm-font-color-base);
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+/* ===== BLOG POSTS ===== */
+.blog-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Blog list page - use full width */
+.blog-list-page .container {
+  max-width: 1200px;
+  padding: 0 2rem;
+}
+
+.blog-list-page .row {
+  display: flex;
+  gap: 3rem;
+}
+
+/* Main content area */
+.blog-list-page .col {
+  flex: 1;
+  max-width: none;
+}
+
+/* Sidebar */
+.blog-list-page aside {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+/* Post cards */
+article.margin-bottom--xl {
+  border-bottom: 1px solid var(--ifm-border-color);
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+article.margin-bottom--xl:last-child {
+  border-bottom: none;
+}
+
+/* Post titles */
+.blog-post-page h1,
+article h2 a {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  transition: opacity 0.2s ease;
+  font-size: 1.75rem;
+  line-height: 1.3;
+}
+
+article h2 {
+  margin-bottom: 0.5rem;
+}
+
+article h2 a:hover {
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+/* Post metadata */
+.blog-post-page time,
+article time {
+  font-size: 0.875rem;
+  opacity: 0.6;
+}
+
+/* Reading time */
+.blog-post-page .margin-vert--md,
+article .margin-vert--md {
+  font-size: 0.875rem;
+  opacity: 0.6;
+}
+
+/* Post content */
+.markdown {
+  line-height: 1.75;
+}
+
+.markdown p {
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-top: 2.5rem;
+}
+
+/* Code blocks */
+.prism-code {
+  border-radius: var(--ifm-border-radius);
+}
+
+/* ===== SIDEBAR / TOC ===== */
+.table-of-contents {
+  font-size: 0.875rem;
+}
+
+.table-of-contents__link {
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  opacity: 1;
+}
+
+/* ===== FOOTER MINIMALISTA ===== */
+.footer {
+  border-top: 1px solid var(--ifm-border-color);
+  padding: 2rem 0;
+  background: var(--ifm-footer-background-color);
+}
+
+.footer--dark {
+  background: var(--ifm-footer-background-color);
+}
+
+.footer__title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  opacity: 0.6;
+}
+
+.footer__link-item {
+  font-size: 0.875rem;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.footer__link-item:hover {
+  opacity: 1;
+}
+
+.footer__copyright {
+  font-size: 0.875rem;
+  opacity: 0.5;
+  margin-top: 2rem;
+}
+
+/* ===== BOTÕES ===== */
+.button {
+  font-weight: 500;
+  border-radius: var(--ifm-border-radius);
+  transition: all 0.2s ease;
+}
+
+.button--secondary {
+  background: var(--ifm-color-emphasis-200);
+  border: 1px solid var(--ifm-border-color);
+  color: var(--ifm-font-color-base);
+}
+
+.button--secondary:hover {
+  background: var(--ifm-color-emphasis-300);
+  opacity: 0.9;
+}
+
+/* ===== PAGES ===== */
+.main-wrapper {
+  padding-top: 0;
+  min-height: calc(100vh - var(--ifm-navbar-height) - 150px);
+}
+
+/* Container global - todas as páginas */
+.main-wrapper .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ===== ABOUT PAGE ===== */
+/* MDX Page (About) - estrutura igual ao Blog */
+[class*="mdxPageWrapper"] {
+  padding: 3rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+[class*="mdxPageWrapper"] .row {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+/* TOC à direita - pequena */
+[class*="mdxPageWrapper"] .col--3 {
+  flex: 0 0 180px;
+  max-width: 180px;
+  order: 2;
+}
+
+/* Conteúdo principal - maior */
+[class*="mdxPageWrapper"] .col--7,
+[class*="mdxPageWrapper"] .col--9 {
+  flex: 1;
+  max-width: 750px;
+  order: 1;
+}
+
+/* Fallback para páginas simples */
+.mdxPage_vHO8,
+.mdxPage,
+[class*="mdxPage_"] {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* About page typography */
+.markdown h1:first-child {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.markdown h2 {
+  font-size: 1.35rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Responsive About */
+@media (max-width: 996px) {
+  [class*="mdxPageWrapper"] {
+    padding: 2rem 1rem;
+  }
+
+  [class*="mdxPageWrapper"] .row {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  [class*="mdxPageWrapper"] .col--3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    order: 2;
+  }
+
+  [class*="mdxPageWrapper"] .col--7,
+  [class*="mdxPageWrapper"] .col--9 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    order: 1;
+  }
+}
+
+/* ===== SEARCH ===== */
+.DocSearch-Button {
+  border-radius: var(--ifm-border-radius);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 996px) {
+  .hero__title {
+    font-size: 2.25rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* ===== ANIMAÇÕES E TRANSIÇÕES ===== */
+a,
+button,
+.navbar__link,
+.footer__link-item {
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+/* Remove features section default styling */
+.hero + main .container {
+  display: none;
+}
+
+/* ===== GITHUB ICON NA NAVBAR ===== */
+.header-github-link::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23030213' d='M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z'/%3E%3C/svg%3E")
+    no-repeat;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.header-github-link:hover::before {
+  opacity: 1;
+}
+
+[data-theme='dark'] .header-github-link::before {
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23f5f5f5' d='M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
+/* ===== BLOG PAGE STYLES ===== */
+
+/* Blog sidebar - Arquivo */
+.blog-sidebar {
+  font-size: 0.9rem;
+}
+
+.blog-sidebar .menu__link {
+  font-weight: 400;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  padding: 0.4rem 0.75rem;
+}
+
+.blog-sidebar .menu__link:hover,
+.blog-sidebar .menu__link--active {
+  opacity: 1;
+  background: transparent;
+}
+
+.blog-sidebar .menu__list-item-collapsible {
+  font-weight: 600;
+}
+
+/* Blog list page */
+.blog-list-page header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.blog-list-page header p {
+  font-size: 1rem;
+  opacity: 0.7;
+  margin-bottom: 2rem;
+}
+
+/* Blog post items */
+.blog-post-item {
+  border-bottom: 1px solid var(--ifm-border-color);
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.blog-post-item:last-child {
+  border-bottom: none;
+}
+
+.blog-post-item header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.blog-post-item header h2 a {
+  color: var(--ifm-font-color-base);
+}
+
+.blog-post-item header h2 a:hover {
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+/* Blog post metadata */
+.blog-post-item .blog__post-info {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  opacity: 0.6;
+  margin-bottom: 0.75rem;
+}
+
+/* Blog post excerpt */
+.blog-post-item .markdown {
+  font-size: 1rem;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* Remove read more button styling, make it subtle */
+.blog-post-item footer {
+  margin-top: 1rem;
+}
+
+.blog-post-item footer a {
+  font-size: 0.875rem;
+  opacity: 0.7;
+}
+
+.blog-post-item footer a:hover {
+  opacity: 1;
+}
+
+/* Single blog post page */
+.blog-post-page article header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.blog-post-page article .margin-vert--md {
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+/* Blog tags */
+.tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background: var(--ifm-color-emphasis-200);
+  opacity: 0.8;
+}
+
+.tag:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* Blog archive sidebar */
+aside.blog-sidebar nav.menu {
+  padding-top: 1rem;
+}
+
+aside.blog-sidebar nav.menu > ul > li > .menu__link {
+  font-weight: 600;
+  font-size: 0.9rem;
+  opacity: 1;
+}
+
+/* Year/month grouping in sidebar */
+.menu__list .menu__list {
+  padding-left: 1rem;
+}
+
+.menu__list .menu__list .menu__link {
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+/* ===== BLOG LAYOUT IMPROVEMENTS ===== */
+
+/* Blog list page - sidebar fixa no canto, posts centralizados */
+[class*="blogListPage"] {
+  padding: 3rem 0;
+  max-width: 100%;
+  margin: 0;
+}
+
+[class*="blogListPage"] > .container {
+  max-width: 100% !important;
+  width: 100%;
+  padding: 0;
+}
+
+[class*="blogListPage"] .row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Sidebar fixa no canto esquerdo */
+[class*="blogListPage"] .col--3 {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 1rem);
+  flex: 0 0 220px;
+  max-width: 220px;
+  padding-left: 2rem;
+  order: 1;
+  align-self: flex-start;
+}
+
+/* Conteúdo principal - centralizado na área restante */
+[class*="blogListPage"] .col--7,
+[class*="blogListPage"] .col--9 {
+  flex: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  order: 2;
+}
+
+/* Hide author avatar in blog list */
+.avatar__photo-link,
+.avatar__photo {
+  display: none;
+}
+
+/* Simplify author info display */
+.avatar__intro {
+  margin-left: 0;
+}
+
+/* Blog post card in list - simpler */
+[class*="blogPostItem"] {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--ifm-border-color);
+  margin-bottom: 0;
+}
+
+[class*="blogPostItem"]:last-child {
+  border-bottom: none;
+}
+
+/* Post title in list */
+[class*="blogPostItem"] header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Post meta in list - date and reading time */
+[class*="blogPostItem"] .row .col time,
+[class*="blogPostItem"] [class*="blogPostInfo"] {
+  font-size: 0.875rem;
+  opacity: 0.6;
+}
+
+/* Tags in post list */
+[class*="blogPostItem"] footer .row {
+  align-items: center;
+}
+
+/* Read more link */
+[class*="blogPostItem"] [class*="readMore"] {
+  font-size: 0.875rem;
+  opacity: 0.7;
+}
+
+[class*="blogPostItem"] [class*="readMore"]:hover {
+  opacity: 1;
+}
+
+/* Esconder navegação entre posts */
+.pagination-nav,
+[class*="blogPostPaginator"] {
+  display: none !important;
+}
+
+/* ===== SINGLE BLOG POST PAGE ===== */
+[class*="blogPostPage"] {
+  padding: 3rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+[class*="blogPostPage"] > .container {
+  max-width: 100% !important;
+  padding: 0;
+}
+
+[class*="blogPostPage"] .row {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+/* TOC à direita - pequena */
+[class*="blogPostPage"] .col--3 {
+  flex: 0 0 180px;
+  max-width: 180px;
+  order: 2;
+}
+
+/* Conteúdo do post - maior */
+[class*="blogPostPage"] .col--7,
+[class*="blogPostPage"] .col--9 {
+  flex: 1;
+  max-width: 750px;
+  order: 1;
+}
+
+/* ===== RESPONSIVE BLOG ===== */
+@media (max-width: 996px) {
+  [class*="blogListPage"],
+  [class*="blogPostPage"] {
+    padding: 2rem 1rem;
+  }
+
+  [class*="blogListPage"] .row,
+  [class*="blogPostPage"] .row {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  [class*="blogListPage"] .col--3 {
+    position: static;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: 0;
+    order: 2;
+  }
+
+  [class*="blogPostPage"] .col--3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    order: 2;
+  }
+  
+  [class*="blogListPage"] .col--7,
+  [class*="blogListPage"] .col--9,
+  [class*="blogPostPage"] .col--7,
+  [class*="blogPostPage"] .col--9 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    order: 1;
+  }
 }
