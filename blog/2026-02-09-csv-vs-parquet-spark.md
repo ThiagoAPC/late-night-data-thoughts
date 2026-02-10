@@ -2,8 +2,8 @@
 title: "Benchmarks úteis do Spark, por que você deve saber disso?"
 description: "Através destes benchmarks simples do spark eu pretendo ilustrar conceitos relativamente básicos sobre estratégias de leitura de dados, porém que vão te auxiliar a enxergar a arquitetura de processamento de dados com um olhar um pouco mais pragmático."
 date: 2026-02-09
-tags: [Spark, Python]
-slug: meu-novo-post
+tags: [spark, python, performance, bigdata, data-engineering]
+slug: benchmarks-spark
 authors: [thiago]
 ---
 
