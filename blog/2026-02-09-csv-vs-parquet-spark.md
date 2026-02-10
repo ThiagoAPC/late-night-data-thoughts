@@ -7,7 +7,7 @@ slug: benchmarks-spark
 authors: [thiago]
 ---
 
-Basicamente um dos pontos inicias na carreira de todo engenheiro de dados é conhecer, entender, experimentar e dominar frameworks de processamento de dados para Big Data, isso por que as necessidades de dados das grandes empresas aumentam exponencialmente conforme seus negócios crescem, o foco aqui não é te ensinar do básico o que é Spark e pra que ele serve, eu quero apenas ilustrar uma série de cenários onde certas práticas fazem diferença na hora de utilizar o Spark e talvez me incentivar a ter mais cuidado na hora de planejar como eu farei uso dessa tecnologia, tendo um olhar mais crítico sobre o processo inteiro como um todo.
+Basicamente um dos pontos iniciais na carreira de todo engenheiro de dados é conhecer, entender, experimentar e dominar frameworks de processamento de dados para Big Data, isso por que as necessidades de dados das grandes empresas aumentam exponencialmente conforme seus negócios crescem, o foco aqui não é te ensinar do básico o que é Spark e pra que ele serve, eu quero apenas ilustrar uma série de cenários onde certas práticas fazem diferença na hora de utilizar o Spark e talvez me incentivar a ter mais cuidado na hora de planejar como eu farei uso dessa tecnologia, tendo um olhar mais crítico sobre o processo inteiro como um todo.
 
 ## Benchmark 1 - CSV vs Parquet, na prática o que muda?
 
@@ -51,7 +51,7 @@ No **Parquet**, conceptualmente:
 [25, 30, 28]        # coluna idade
 ```
 
-Isso muda TUDO quando você quer fazer uma query tipo `SELECT avg(idade) FROM tabela`. Porque pensa bem, vocë direciona a engine do spark a ler DIRETAMENTE o que vocë precisa (idade, nesse caso), sem precisar varrer todas as linhas, ou seja, ao invés de ler 1 milháo de linhas são apenas as que contém as colunas desejadas. 
+Isso muda TUDO quando você quer fazer uma query tipo `SELECT avg(idade) FROM tabela`. Porque pensa bem, você direciona a engine do Spark a ler DIRETAMENTE o que você precisa (idade, nesse caso), sem precisar varrer todas as linhas, ou seja, ao invés de ler 1 milhão de linhas são apenas as que contém as colunas desejadas. 
 
 ### E a consistência dos dados?
 
@@ -130,7 +130,7 @@ Mas calma - isso não significa que inferir é sempre ruim. A decisão depende d
 - Quando você já conhece a regra de negócio e o schema é estável
 - Quando custo de cloud é uma preocupação
 
-**Lição:** Avalie o trade-off. Definir schema explicito deixa código mais verboso e "acoplado", mas em produção com dados grandes, o ganho de performance compensa. Pra exploração e prototipagem, infer da pra usar tranquilo.
+**Lição:** Avalie o trade-off. Definir schema explícito deixa código mais verboso e "acoplado", mas em produção com dados grandes, o ganho de performance compensa. Pra exploração e prototipagem, infer dá pra usar tranquilo.
 
 ```python
 # Em produção com schema estável:
@@ -142,7 +142,7 @@ df = spark.read.csv("arquivo.csv", header=True, inferSchema=True)
 
 **2. Parquet comprime absurdamente bem**
 
-70% de redução não é coincidência. Como os dados da mesma coluna ficam juntos, a compressão funciona muito melhor. Uma coluna de `vendor_id` que só tem valores 1 e 2 comprime pra quase nada. No CSV, esses valores estão espalhados em linhas e mais linhas dizend pouca coisa várias vezes diferentes.
+70% de redução não é coincidência. Como os dados da mesma coluna ficam juntos, a compressão funciona muito melhor. Uma coluna de `vendor_id` que só tem valores 1 e 2 comprime pra quase nada. No CSV, esses valores estão espalhados em linhas e mais linhas dizendo pouca coisa várias vezes diferentes.
 
 No nosso exemplo, tivemos o seguinte resultado:
 
@@ -153,7 +153,7 @@ Convertendo CSV para Parquet...
   Tamanho Parquet: 57.93 MB
   Compressão: 69.7% menor
 
-Repare o tamanho do arquivo antes e depois da conversão, você econopmiza espaço e ganha mais performance!
+Repare o tamanho do arquivo antes e depois da conversão, você economiza espaço e ganha mais performance!
 
 **Lição:** Se possível converta seus dados para Parquet na primeira etapa do pipeline.
 
