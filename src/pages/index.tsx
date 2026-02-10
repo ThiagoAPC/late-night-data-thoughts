@@ -32,25 +32,11 @@ function HomepageHeader() {
 function RecentPosts(): ReactNode {
   const posts = [
     {
-      slug: 'introducao-typescript',
-      title: 'Introdução ao TypeScript para Desenvolvedores JavaScript',
-      excerpt: 'TypeScript tem se tornado cada vez mais popular no ecossistema JavaScript. Neste artigo, exploramos os fundamentos e benefícios de adicionar tipagem estática ao seu código.',
-      date: '5 de Fevereiro, 2026',
-      readTime: '5 min de leitura',
-    },
-    {
-      slug: 'react-server-components',
-      title: 'React Server Components: O Futuro do React',
-      excerpt: 'Server Components representam uma mudança fundamental na forma como construímos aplicações React. Vamos entender o que são e como funcionam.',
-      date: '3 de Fevereiro, 2026',
-      readTime: '7 min de leitura',
-    },
-    {
-      slug: 'otimizacao-performance',
-      title: 'Otimização de Performance em Aplicações Web',
-      excerpt: 'Performance é crucial para a experiência do usuário. Descubra técnicas essenciais para otimizar suas aplicações web e melhorar métricas importantes.',
-      date: '1 de Fevereiro, 2026',
-      readTime: '6 min de leitura',
+      slug: 'benchmarks-spark',
+      title: 'Benchmarks úteis do Spark, por que você deve saber disso?',
+      excerpt: 'Através destes benchmarks simples do spark eu pretendo ilustrar conceitos relativamente básicos sobre estratégias de leitura de dados, porém que vão te auxiliar a enxergar a arquitetura de processamento de dados com um olhar um pouco mais pragmático.',
+      date: '9 de Fevereiro, 2026',
+      readTime: '8 min de leitura',
     },
   ];
 
