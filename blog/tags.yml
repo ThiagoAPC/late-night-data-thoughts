@@ -67,3 +67,23 @@ linting:
   label: Linting
   permalink: /linting
   description: Artigos sobre linting e formatação de código
+
+spark:
+  label: Spark
+  permalink: /spark
+  description: Artigos sobre Apache Spark e processamento de dados
+
+python:
+  label: Python
+  permalink: /python
+  description: Artigos sobre Python
+
+bigdata:
+  label: Big Data
+  permalink: /bigdata
+  description: Artigos sobre Big Data e processamento em larga escala
+
+data-engineering:
+  label: Data Engineering
+  permalink: /data-engineering
+  description: Artigos sobre engenharia de dados
