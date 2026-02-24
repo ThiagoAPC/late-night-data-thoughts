@@ -87,3 +87,8 @@ data-engineering:
   label: Data Engineering
   permalink: /data-engineering
   description: Artigos sobre engenharia de dados
+
+partitioning:
+  label: Partitioning
+  permalink: /partitioning
+  description: Artigos sobre particionamento e otimização de dados
