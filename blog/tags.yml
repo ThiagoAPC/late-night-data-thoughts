@@ -58,6 +58,21 @@ programacao:
   permalink: /programacao
   description: Artigos sobre programação
 
+sql:
+  label: SQL
+  permalink: /sql
+  description: Artigos sobre SQL e consultas
+
+databases:
+  label: Databases
+  permalink: /databases
+  description: Artigos sobre bancos de dados relacionais e não-relacionais
+
+jornada-sql:
+  label: Jornada SQL
+  permalink: /jornada-sql
+  description: Série documentando a jornada de aprendizado em SQL do zero
+
 docker:
   label: Docker
   permalink: /docker

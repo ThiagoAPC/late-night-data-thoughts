@@ -263,6 +263,14 @@ article .margin-vert--md {
   margin-top: 2.5rem;
 }
 
+/* ===== IMAGENS - CENTRALIZAÇÃO AUTOMÁTICA ===== */
+.markdown img {
+  display: block;
+  margin: 1.75rem auto;
+  max-width: 100%;
+  border-radius: var(--ifm-border-radius);
+}
+
 /* Code blocks */
 .prism-code {
   border-radius: var(--ifm-border-radius);

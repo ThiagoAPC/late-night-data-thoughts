@@ -77,6 +77,7 @@ const config: Config = {
       hideOnScroll: false,
       items: [
         {to: '/blog', label: 'Posts', position: 'left'},
+        {to: '/blog/jornada-sql', label: 'Jornada SQL', position: 'left'},
         {to: '/about', label: 'About', position: 'left'},
         {
           href: 'https://github.com/ThiagoAPC',
