@@ -2,6 +2,8 @@
 
 Bom minha área não é front-end e provavelmente nunca será, mas eu quis muito montar um blog pra poder catalogar as coisas que eu venho estudando e resolvi testar o copilot pra me ajudar a levantar um o mais rápido possível, a ideia aqui não é um layout genial ou uma arquitetura super detalhada e complexa, não tenho know-how sobre isso. Eu queria apenas um lugar que eu pudesse subir problemas ou coisas que achei interessante e peguei pra estudar determinado dia, enfim, pra que estiver lendo isso, um abraço.
 
+https://thiagoapc.github.io/late-night-data-thoughts/
+
 # Website
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
